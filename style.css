@@ -1,0 +1,36 @@
+body {    
+        background-color: powderblue;
+        font-family: sans-serif;
+        margin-left: 25%;
+        margin-right:25%;
+}
+
+.front-page{
+        color: red;
+        text-align: center; 
+}
+
+h2 {
+        margin-left: 20%;
+}
+
+h3 {
+       margin-left: 40%;
+}
+
+h1 {
+       text-align: center;
+}
+
+h5 {
+       font-size: 16;
+       font-weight: bold;
+       text-decoration: underline;        
+       margin-bottom: 5px;  
+}
+
+.image img {
+       margin-left: 32%;
+       width: 240px;
+       height: 240px;
+}
