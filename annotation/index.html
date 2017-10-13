@@ -15,7 +15,82 @@
 <div id="lyrics"></div>
 
 <script>
-  // Complete this section and create a CSS file named style.css
+
+var lyrcs = [
+"Children have You ever met the Bogeyman before \n\
+No, of course You haven't for You're much too good, I'm sure;\n\
+Don't You be afraid of him if he should visit You,\n\
+He's a great big coward, so I'll tell You what to do",
+
+"Hush, hush, hush, here comes the Bogeyman,\n\
+Don't let him come too close to You, he'll catch you if he can.\n\
+Just pretend that you're a crocodile\n\
+And you will find that Bogeyman will run away a mile.",
+
+"Say Shoo shoo and stick him with a pin\n\
+Bogeyman will very nearly jump out of his skin\n\
+Say buzz buzz just like the wasps that sting\n\
+Bogeyman will think you are an elephant with wings",
+
+"Hush, hush, hush, here comes the Bogeyman\n\
+Tell him you've got soldiers in your bed\n\
+For he will never guess that they are only made of lead",
+
+"Say Hush hush, he'll think that you're asleep\n\
+If you make a lovely snore away he'll softly creep\n\
+Sing this tune you children one and all\n\
+Bogeyman will run away, he'll think it's Henry Hall!",
+
+"When the shadows of the evening creep across the sky\n\
+And your Mummy comes upstairs to sing a lullaby\n\
+Tell her that the bogeyman no longer frightens you\n\
+Uncle Henry's very kindly told you what to do",
+
+"Hush, hush, hush, here comes the Bogeyman\n\
+Don't let him come too close to you, He'll catch you if he can.\n\
+Just pretend your teddy bear's a dog\n\
+Then shout out, 'Fetch him, Teddy!' and he'll hop off like a frog.",
+
+"Say Meoow, pretend that you're a cat\n\
+He'll think you may scratch him that make him fall down flat\n\
+Just pretend he isn't really there\n\
+You will find that Bogey man will vanish in thin air",
+
+"Here's one way to catch him without fail\n\
+Just keep a little salt with you\n\
+and put it on his tail" ];
+
+
+var vid = document.getElementById("a_classic");
+vid.addEventListener("timeupdate", function(event){
+
+    time = this.currentTime;
+
+    if (time < 10) {
+    document.getElementById("lyrics").innerHTML = "ITS THE BOGEYMAN";}
+    else if (time < 25) {
+    document.getElementById("lyrics").innerHTML = lyrcs[0];}
+    else if (time < 41){
+    document.getElementById("lyrics").innerHTML = lyrcs[1];}
+    else if (time < 56) {
+    document.getElementById("lyrics").innerHTML = lyrcs[2];}
+    else if (time < 71) {
+    document.getElementById("lyrics").innerHTML = lyrcs[3];}
+    else if (time < 94) {
+    document.getElementById("lyrics").innerHTML = lyrcs[4];}
+    else if (time < 110) {
+    document.getElementById("lyrics").innerHTML = lyrcs[5];}
+    else if (time < 135) {
+    document.getElementById("lyrics").innerHTML = lyrcs[6];}
+    else if (time < 150) {
+    document.getElementById("lyrics").innerHTML = lyrcs[7];}
+    else {
+    document.getElementById("lyrics").innerHTML = lyrcs[8];}
+
+    });
+
+
+
 </script>
 </body>
 </html>

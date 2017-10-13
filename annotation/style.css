@@ -1,0 +1,10 @@
+h1 {
+    font-weight: bold;
+    color: green;
+    padding-left: 20%
+}
+#lyrics {
+    text-align: left;           
+    color: green;        
+    padding-right: 50%;
+}
