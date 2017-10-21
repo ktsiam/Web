@@ -1,54 +1,57 @@
-var myLat = 0;
-var myLng = 0;
+var myLat = 42.4;
+var myLng = -71.1;
 var request = new XMLHttpRequest();
 var me = new google.maps.LatLng(myLat, myLng);
 var myOptions = {
-    zoom: 13,
-    center: me,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+	zoom: 13,
+	center: me,
+	mapTypeId: google.maps.MapTypeId.ROADMAP
 };
-
 var map;
 var marker;
 var infowindow = new google.maps.InfoWindow();
 
+var icon = {
+    url: "me.png",
+    scaledSize: new google.maps.Size(50, 50), // scaled size
+    origin: new google.maps.Point(0,0), // origin
+    anchor: new google.maps.Point(0, 0) // anchor
+};
 
-function init() {
-    console.log("init");
-    getMyLocation();    
-    map = new google.maps.Map(document.getElementById('map', myOptions));
-    renderMap();
-    console.log("map is created");
+function map_init()
+{
+	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	getMyLocation();
 }
 
-
 function getMyLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-                myLat = position.coords.latitude;
-                myLng = position.coords.longitude;
-                renderMap();
-            });
-    }
-    else {
-        alert("Geolocation is not supported by your web browser.");
-        }
-}    
+	if (navigator.geolocation) { // the navigator.geolocation object is supported on your browser
+		navigator.geolocation.getCurrentPosition(function(position) {
+			myLat = position.coords.latitude;
+			myLng = position.coords.longitude;
+			renderMap();
+		});
+	}
+	else {
+		alert("Geolocation is not supported by your web browser.  What a shame!");
+	}
+}
 
 function renderMap()
 {
-    me = new google.maps.LatLng(myLat, myLng);
-    map.panTo(me);
-    marker = new google.maps.Marker({
-            position: me,
-            title: "Here I Am!"
-        });
-    marker.setMap(map);
-    
+	me = new google.maps.LatLng(myLat, myLng);
+	map.panTo(me);
+	
+	marker = new google.maps.Marker({
+		position: me,
+		title: "That's me!",
+        icon: icon,
+	});
+	marker.setMap(map);		   
+
     google.maps.event.addListener(marker, 'click', function() {
-            infowindow.setContent(marker.title);
-            infowindow.open(map, marker);
+		infowindow.setContent("Hello there Traveller!");
+		infowindow.open(map, marker);
         });
 }
-
 
