@@ -11,11 +11,18 @@ var map;
 var marker;
 var infowindow = new google.maps.InfoWindow();
 
-var icon = {
+var landMarkIcon = {
     url: "landmark.png",
-    scaledSize: new google.maps.Size(50, 50),
+    scaledSize: new google.maps.Size(25, 25),
     origin: new google.maps.Point(0,0),
-    anchor: new google.maps.Point(0, 0) // anchor
+    anchor: new google.maps.Point(12, 12)
+};
+
+var myIcon = {
+    url: "me.png",
+    scaledSize: new google.maps.Size(60, 60),
+    origin: new google.maps.Point(0,0),
+    anchor: new google.maps.Point(30, 60)
 };
 
 function map_init()
@@ -25,7 +32,7 @@ function map_init()
 }
 
 function getMyLocation() {
-	if (navigator.geolocation) { // the navigator.geolocation object is supported on your browser
+	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
 			myLat = position.coords.latitude;
 			myLng = position.coords.longitude;
@@ -46,7 +53,7 @@ function renderMap()
 		position: me,
 		title: "That's me!",
         info: "hey",
-        icon: "me.png"
+        icon: myIcon
 	});
 	marker.setMap(map);		   
 
@@ -93,10 +100,10 @@ function getSmallestDistance()
     
     marker.info = "Closest Landmark: " + data.landmarks[idx].properties.Location_Name
         + "<br>" + "Distance from closest landmark : " + min + "miles";
-
+    
     line = new google.maps.Polyline({
             path: [me, topLoc],
-            strokeColor: '#03f2e0'
+            //strokeColor: '#03f2e0'
         });
     line.setMap(map);
 }
@@ -148,7 +155,7 @@ function setLandmarks()
         
         var landmarker = new google.maps.Marker({
                 position: location,
-                icon: icon,
+                icon: landMarkIcon,
                 title: "Landmark",
                 info: data.landmarks[i].properties.Details
             });
