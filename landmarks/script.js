@@ -53,5 +53,25 @@ function renderMap()
 		infowindow.setContent("Hello there Traveller!");
 		infowindow.open(map, marker);
         });
+
+    makeRequest();
 }
 
+function makeRequest()
+{
+    request.open("POST", "https://defense-in-derpth.herokuapp.com/sendLocation", true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            data = JSON.parse(this.responseText);
+            console.log(data);
+            getSmallestDistance();
+        }
+    }
+    request.send("login=S3hcFNS0&lat=" + myLat + "&lng=" + myLng);
+}
+
+function getSmallestDistance()
+{    
+    google.maps.geometry.spherical.computeDistanceBetween(latLngA, latLngB);
+}
