@@ -26,8 +26,6 @@ function store(date) {
         localStorage.setItem(idx, date + val);
 }
 
-$( "#myDiv" ).css( "border", "3px solid red" );
-
 function load()
 {
         txt = "";
