@@ -39,7 +39,6 @@ function load()
 $( document ).ready(function() {
                 $('#msg').on('keypress', function (event) {
                                 if(event.which === 13) {
-                                        console.log("stored");
                                         store(getDate());
                                         load();
                                 }
