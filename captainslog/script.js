@@ -14,8 +14,8 @@ function getDate()
         var m = dateObj.getMinutes();
         m     = (m<10 ? "0" : "") + m;
         var s = dateObj.getSeconds();
-        s     = (s<10 ? "0" : "") + s
-                date += h + ":" + m + ":" + s + " ";
+        s     = (s<10 ? "0" : "") + s;
+        date += h + ":" + m + ":" + s + " ";
         date += dateObj.getFullYear() + " - ";
         return date;
 }
