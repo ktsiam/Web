@@ -1,4 +1,7 @@
 h3{
         font-size = 14;
-        font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;    
+        font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+}
+#log{
+        font-style: italic;
 }
