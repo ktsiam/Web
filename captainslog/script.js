@@ -10,11 +10,11 @@ function getDate()
         date += monthRay[dateObj.getMonth()] + " ";
         date += dateObj.getDate() + " ";
         var h = dateObj.getHours();
-        h     = (h<10 ? "0" : "") + h;
+        h     = (h>10 ? "" : s==0 ? "00" : "0") + h;
         var m = dateObj.getMinutes();
-        m     = (m<10 ? "0" : "") + m;
+        m     = (m>10 ? "" : s==0 ? "00" : "0") + m;
         var s = dateObj.getSeconds();
-        s     = (s<10 ? "0" : "") + s;
+        s     = (s>10 ? "" : s==0 ? "00" : "0") + s;
         date += h + ":" + m + ":" + s + " ";
         date += dateObj.getFullYear() + " - ";
         return date;
