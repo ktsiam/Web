@@ -67,7 +67,7 @@ function renderMap()
 
 function makeRequest()
 {
-    request.open("POST", "https://defense-in-derpth.herokuapp.com/sendLocation", true);
+    request.open("POST", "https://serene-retreat-38380.herokuapp.com/sendLocation", true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -84,6 +84,7 @@ function getSmallestDistance()
 {    
     var min = Infinity;
     var lat, lng, loc, dist, idx, topLoc;
+    var idx = -1
     for (i = 0; i < data.landmarks.length; ++i)
         {
             lng = data.landmarks[i].geometry.coordinates[0];
