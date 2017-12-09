@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>HAX</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <h1>Introduction</h1>
+    I was hired to hack the most unhackable website of all: the Landmarks website
+    <h2>Methodology and Findings</h2>
+    To hack this website I used curl, as well as the bash shell language, to be able to deliver multiple requests per second consistently. I first noticed that there is no protection against injections in the post info. I used this to apply cross-site-scripting. After realizing that the server has no maximum requests from a client, I wrote a script that swarms the website with post requests making it slow and clumpsy.
+    <h2>Issues Found</h2>
+    <h3>Issue 1: No check for user input.<h3>
+        <ul>
+          <li>
+            Location:
+            Website page: https://hidden-taiga-87881.herokuapp.com/
+            Code: <img src="issue-1.png" alt="bug in code">
+          </li>
+          The issue is quite important, as it is very easy to apply cross-site scripting and manipulate the page in any way one wants
+          <li>
+            <img src="hack-1.png" alt="proof">
+            <img src="hack-1(2).png" alt="proof2">
+          </li>
+        </ul>
+    
+  </body>
+</html>
