@@ -7,23 +7,50 @@
   </head>
   <body>
     <h1>Introduction</h1>
-    I was hired to hack the most unhackable website of all: the Landmarks website
-    <h2>Methodology and Findings</h2>
-    To hack this website I used curl, as well as the bash shell language, to be able to deliver multiple requests per second consistently. I first noticed that there is no protection against injections in the post info. I used this to apply cross-site-scripting. After realizing that the server has no maximum requests from a client, I wrote a script that swarms the website with post requests making it slow and clumpsy.
-    <h2>Issues Found</h2>
-    <h3>Issue 1: No check for user input.<h3>
+    In this assignment, I assessed the security/privacy of the Landmark web application. Some issues are illustrated, and solutions are provided for the backend of this application
+
+    <h1>Methodology and Findings</h2>
+    To exploit this website's vulnerabilities I used curl, as well as the bash shell language (to be able to deliver multiple requests per second consistently). I first noticed that there is no protection against injections in the post info. I used this to apply cross-site-scripting. After realizing that the server has no maximum requests from a client, I wrote a script that swarms the website with post requests making it slow and clumpsy.
+    <h1>Issues Found</h2>
+    <h3>Issue 1: No check for user input</h3>
         <ul>
           <li>
-            Location:
-            Website page: https://hidden-taiga-87881.herokuapp.com/
-            Code: <img src="issue-1.png" alt="bug in code">
+            Location: https://hidden-taiga-87881.herokuapp.com/</br>
+            File index.js never checks for questionable user input.</br></br>
+            <img src="img/issue-1.png" alt="bug in code" id="proof"></br>
+          </br>The issue is quite important, as it is very easy to apply cross-site scripting and manipulate the page in any way one wants.</br>
+            Here you can see a redirection happening when one opens the site:</br></br>
+          <h4>LOADING PAGE:</h4>
+          <img src="img/redirect1.png" id="proof">
+          <h4>REDIRECTION:</h4>
+          <img src="img/redirect2.png" id="proof">
           </li>
-          The issue is quite important, as it is very easy to apply cross-site scripting and manipulate the page in any way one wants
-          <li>
-            <img src="hack-1.png" alt="proof">
-            <img src="hack-1(2).png" alt="proof2">
-          </li>
+          <li>To solve this, one could add a function that selects or special characters (needed for scripts) and removes them from user input, and/or keep maximum username size small. Both these should be inforced on back-end to avoid proxy attacks.</li>     
+          
         </ul>
-    
+        <h3>Issue 2: No maximum number of requests</h3>
+            <ul>
+              <li>Location: Website page: https://hidden-taiga-87881.herokuapp.com/sendLocation
+              </li>
+              <li>This issue is quite important but nowhere near as important as the previous one. </li>
+              <li>
+                With the following script, you are able to fill the database with many entries, slow down service, and (with a lot of time) reach the data limit.
+                <h4>MALICIOUS SCRIPT:</h4>
+                <img src="img/script.png" id="proof">
+                <h4>RESULT AFTER A FEW MINUTES:</h4>
+                <img src="img/checkins.png" id="proof">
+              </li>
+              </br>
+              <li>
+                To solve this problem, one could make the server ignore multiple requests from the same IP address.
+              </li>
+            </ul>
+            <h1>Conclusion</h1>
+            This document addressed the security/privacy issues in the given application. The vulnerabilities that were found were cross-site scripting, as well as no checking for repeated POST requests. Especially the first vulnerability could be taken advantage of in a large number of ways. However, by no means does this mean there were no more vulnerabilities in the application. The suggestion that I would make is to never trust user input, and try to regulate it as much as possible (e.g. through maximum size, etc.
+
+            <h1>References</h1>
+            https://tuftsdev.github.io/WebProgramming/</br>
+            http://www.veracode.com/security/xss</br>
+            https://www.cs.tufts.edu/comp/40/labs/sh-lab
   </body>
 </html>
